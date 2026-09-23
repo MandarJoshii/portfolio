@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mandar Joshi · Full-Stack Developer",
   description: "Full-stack developer building secure, production-ready web applications.",
+  robots: { index: false, follow: false }, // remove at v1 launch
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
