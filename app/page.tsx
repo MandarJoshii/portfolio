@@ -1,24 +1,30 @@
-import Link from "next/link";
+import { ButtonLink } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { TextLink } from "@/components/ui/text-link";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center gap-6 px-6">
-      <p className="text-muted">Full-stack developer</p>
-      <h1 className="font-display text-hero max-w-[12ch] font-bold">
-        I build the parts of web apps that have to be right.
-      </h1>
-      <p className="text-muted max-w-[38ch] text-lg leading-relaxed">
-        Authentication, permissions, payments, and data that never ends up half-written.
-      </p>
-      <div className="flex flex-wrap items-center gap-4">
-        <Link
-          href="https://github.com/MandarJoshii"
-          className="rounded-instrument bg-signal text-signal-ink inline-flex min-h-12 items-center px-5 font-medium"
-        >
-          View my work
-        </Link>
-        <span className="text-muted font-mono text-sm">font check: IBM Plex Mono</span>
-      </div>
+    <main className="flex min-h-dvh items-center">
+      <Container className="flex flex-col gap-6">
+        <p className="text-muted">Full-stack developer</p>
+        <h1 className="font-display text-hero max-w-[12ch] font-bold">
+          I build the parts of web apps that have to be right.
+        </h1>
+        <p className="text-muted max-w-[38ch] text-lg leading-relaxed">
+          Authentication, permissions, payments, and data that never ends up half-written.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <ButtonLink href="https://github.com/MandarJoshii">View my work</ButtonLink>
+          {/* Temporary: points nowhere until the CV file is added in M7 */}
+          <ButtonLink href="#" variant="secondary">
+            Download CV
+          </ButtonLink>
+        </div>
+        <div className="flex gap-6">
+          <TextLink href="https://github.com/MandarJoshii">GitHub</TextLink>
+          <TextLink href="https://www.linkedin.com/in/mandarrr-joshiiii">LinkedIn</TextLink>
+        </div>
+      </Container>
     </main>
   );
 }

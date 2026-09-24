@@ -8,6 +8,7 @@
   --color-muted: #55554f;
   --color-rule: #b9b9b0;
   --color-signal: #d8321e;
+  --color-signal-deep: #b8281a;
   --color-signal-ink: #ffffff;
 
   --text-hero: clamp(2.6rem, 5.6vw, 5.4rem);
