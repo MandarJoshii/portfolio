@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
+import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -35,7 +37,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plexSans.variable} ${plexCondensed.variable} ${plexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Link
+          href="#main"
+          className="focus:rounded-instrument focus:bg-ink focus:text-paper sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-3"
+        >
+          Skip to content
+        </Link>
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   );
 }

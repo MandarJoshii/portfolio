@@ -27,7 +27,11 @@
 
 @layer base {
   html {
-    color-scheme: light;
+    html {
+      color-scheme: light;
+      scroll-behavior: smooth;
+      scroll-padding-top: 4rem;
+    }
   }
 
   body {

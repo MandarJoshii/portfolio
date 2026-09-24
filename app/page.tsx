@@ -4,7 +4,7 @@ import { TextLink } from "@/components/ui/text-link";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-dvh items-center">
+    <main id="main" className="flex min-h-[calc(100dvh-4rem)] items-center">
       <Container className="flex flex-col gap-6">
         <p className="text-muted">Full-stack developer</p>
         <h1 className="font-display text-hero max-w-[12ch] font-bold">
