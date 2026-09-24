@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Link>
         <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
