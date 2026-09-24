@@ -4,6 +4,7 @@ export const skills = [
   // Languages
   { id: "typescript", name: "TypeScript", category: "language" },
   { id: "javascript", name: "JavaScript", category: "language" },
+  { id: "java", name: "Java", category: "language" },
   { id: "python", name: "Python", category: "language" },
   { id: "sql", name: "SQL", category: "language" },
   { id: "html", name: "HTML", category: "language" },
