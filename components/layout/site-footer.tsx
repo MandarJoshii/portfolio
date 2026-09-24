@@ -52,13 +52,15 @@ export function SiteFooter() {
         </div>
       </Container>
 
-      <Container className="border-rule text-muted flex flex-wrap items-center justify-between gap-4 border-t py-6 text-sm">
-        <p>
-          © {year} {profile.name}
-        </p>
-        <Link href="#main" className="hover:text-ink inline-flex min-h-11 items-center">
-          Back to top
-        </Link>
+      <Container>
+        <div className="border-rule text-muted flex flex-wrap items-center justify-between gap-4 border-t py-6 text-sm">
+          <p>
+            © {year} {profile.name}
+          </p>
+          <Link href="#main" className="hover:text-ink inline-flex min-h-11 items-center">
+            Back to top
+          </Link>
+        </div>
       </Container>
     </footer>
   );
