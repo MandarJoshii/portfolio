@@ -58,7 +58,6 @@ export function Work() {
                   </ul>
 
                   <div className="flex flex-wrap gap-6">
-                    <TextLink href={`/projects/${project.slug}`}>Case study</TextLink>
                     {project.links.github && (
                       <TextLink href={project.links.github}>Source code</TextLink>
                     )}
