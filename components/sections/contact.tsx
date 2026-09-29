@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/reveal";
 import { ContactForm } from "@/components/sections/contact-form";
 import { Container } from "@/components/ui/container";
 import { TextLink } from "@/components/ui/text-link";
@@ -11,7 +12,7 @@ export function Contact() {
       className="border-rule border-t py-20 sm:py-28"
     >
       <Container className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
-        <div>
+        <Reveal>
           <h2
             id="contact-title"
             className="font-display text-4xl font-bold tracking-tight sm:text-5xl"
@@ -25,8 +26,10 @@ export function Contact() {
           <p className="mt-6">
             Or email me at <TextLink href={`mailto:${profile.email}`}>{profile.email}</TextLink>
           </p>
-        </div>
-        <ContactForm />
+        </Reveal>
+        <Reveal delay={120}>
+          <ContactForm />
+        </Reveal>
       </Container>
     </section>
   );

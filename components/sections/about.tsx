@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
 import { skillCategoryLabels, skills } from "@/data/skills";
 import type { SkillCategory } from "@/types/skill";
@@ -12,7 +13,7 @@ export function About() {
       className="border-rule border-t py-20 sm:py-28"
     >
       <Container className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
-        <div>
+        <Reveal>
           <h2
             id="about-title"
             className="font-display text-4xl font-bold tracking-tight sm:text-5xl"
@@ -32,9 +33,9 @@ export function About() {
               real-time systems.
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={120}>
           <h3 className="font-display text-2xl font-bold tracking-tight">What I work with</h3>
           <dl className="mt-6 flex flex-col gap-5">
             {categories.map((category) => {
@@ -52,7 +53,7 @@ export function About() {
               );
             })}
           </dl>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

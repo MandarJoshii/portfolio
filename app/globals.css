@@ -48,15 +48,197 @@
     outline: 2px solid var(--color-signal);
     outline-offset: 3px;
   }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+/* Scroll reveal: content fades up once, the first time it enters the screen.
+   Only hidden when JavaScript runs, so content is never lost without it. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js .reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* 3D tilt toward the pointer, for the project diagrams. */
+.tilt {
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+/* ProcureFlow: requests drifting inside their own tenant's room. */
+@keyframes iso-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: var(--to);
+  }
+}
+
+.iso-drift {
+  animation: iso-drift var(--duration, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* ProcureFlow: one request probes another tenant's wall and is sent back. */
+@keyframes iso-probe {
+  0%,
+  15% {
+    transform: translate(0, 0);
+  }
+  42%,
+  52% {
+    transform: var(--to);
+  }
+  80%,
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.iso-probe {
+  animation: iso-probe 5s ease-in-out infinite;
+}
+
+@keyframes iso-wall {
+  0%,
+  40% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
+  46% {
+    stroke-opacity: 1;
+    fill-opacity: 0.12;
+  }
+  62%,
+  100% {
+    stroke-opacity: 0;
+    fill-opacity: 0;
+  }
+}
+
+.iso-wall {
+  animation: iso-wall 5s ease-in-out infinite;
+}
+
+/* ShiftSwap: a shift tries an overlapping slot (rejected), then a free one. */
+@keyframes swap-move {
+  0%,
+  10% {
+    transform: translate(0, 0);
+  }
+  22%,
+  38% {
+    transform: var(--lane-conflict);
+  }
+  48%,
+  52% {
+    transform: translate(0, 0);
+  }
+  64%,
+  84% {
+    transform: var(--lane-free);
+  }
+  96%,
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.swap-move {
+  animation: swap-move 8s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+
+@keyframes swap-conflict {
+  0%,
+  21% {
+    stroke: var(--color-ink);
+  }
+  23%,
+  38% {
+    stroke: var(--color-signal);
+  }
+  41%,
+  100% {
+    stroke: var(--color-ink);
+  }
+}
+
+.swap-conflict {
+  animation: swap-conflict 8s linear infinite;
+}
+
+/* JobTrack: an application card lifts and moves through the pipeline. */
+@keyframes card-advance {
+  0%,
+  8% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  13% {
+    transform: var(--c1-lift);
+  }
+  18%,
+  30% {
+    transform: var(--c1);
+  }
+  35% {
+    transform: var(--c2-lift);
+  }
+  40%,
+  52% {
+    transform: var(--c2);
+  }
+  57% {
+    transform: var(--c3-lift);
+  }
+  62%,
+  84% {
+    transform: var(--c3);
+    opacity: 1;
+  }
+  90% {
+    transform: var(--c3);
+    opacity: 0;
+  }
+  94% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.card-advance {
+  animation: card-advance 9s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+
+/* Visitors who asked for less motion get the still versions of everything. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tilt {
+    transform: none;
   }
 }
