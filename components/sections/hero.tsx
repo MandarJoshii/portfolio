@@ -10,13 +10,13 @@ const heroLinks = social.filter((item) => item.label !== "Instagram");
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="border-rule border-b">
-      <Container className="grid min-h-[calc(100dvh-4rem)] items-center gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:py-20">
+      <Container className="grid min-h-[calc(100dvh-4rem)] items-center gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:py-14">
         <div className="flex flex-col gap-6">
           <p className="text-muted">{profile.role}</p>
-          <h1 id="hero-title" className="font-display text-hero max-w-[12ch] font-bold">
+          <h1 id="hero-title" className="font-display text-hero max-w-[14ch] font-bold">
             {profile.headline}
           </h1>
-          <p className="text-muted max-w-[38ch] text-lg leading-relaxed">{profile.lede}</p>
+          <p className="text-muted max-w-[40ch] text-lg leading-relaxed">{profile.lede}</p>
           <div className="flex flex-wrap gap-3">
             <ButtonLink href="#work">View my work</ButtonLink>
             <ButtonLink href="#contact" variant="secondary">

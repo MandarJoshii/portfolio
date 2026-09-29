@@ -11,7 +11,7 @@
   --color-signal-deep: #b8281a;
   --color-signal-ink: #ffffff;
 
-  --text-hero: clamp(2.6rem, 5.6vw, 5.4rem);
+  --text-hero: clamp(2.5rem, 4.6vw, 4.75rem);
   --text-hero--line-height: 0.95;
   --text-hero--letter-spacing: -0.02em;
 
@@ -27,11 +27,9 @@
 
 @layer base {
   html {
-    html {
-      color-scheme: light;
-      scroll-behavior: smooth;
-      scroll-padding-top: 4rem;
-    }
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
   }
 
   body {
