@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { site } from "@/data/site";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -26,10 +27,28 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const title = "Mandar Joshi · Full-Stack Developer";
+const description =
+  "Full-stack developer building secure, production-ready web applications with React, Node.js and TypeScript.";
+
 export const metadata: Metadata = {
-  title: "Mandar Joshi · Full-Stack Developer",
-  description: "Full-stack developer building secure, production-ready web applications.",
-  robots: { index: false, follow: false }, // remove at v1 launch
+  metadataBase: new URL(site.url),
+  title: { default: title, template: "%s · Mandar Joshi" },
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Mandar Joshi",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  robots: site.launched ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
