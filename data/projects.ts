@@ -128,7 +128,7 @@ export const projects = [
 
 export type ProjectSlug = (typeof projects)[number]["slug"];
 
-export const featuredProjects = projects.filter((project) => project.featured);
+export const featuredProjects: readonly Project[] = projects.filter((project) => project.featured);
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
