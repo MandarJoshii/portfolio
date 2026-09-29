@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { WebhookProof } from "@/components/proofs/webhook-proof";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { getProject, projects } from "@/data/projects";
@@ -129,6 +130,18 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               ))}
             </ul>
           </CaseSection>
+
+          {project.slug === "procureflow" && (
+            <CaseSection title="Try it: payment webhooks">
+              <p className="mb-8 max-w-[60ch] text-lg leading-relaxed">
+                ProcureFlow only marks an invoice as paid when Razorpay&apos;s webhook signature
+                checks out. Below is the same HMAC-SHA256 check, running in your browser. Change
+                anything in the request body and the payment is rejected, because the signature no
+                longer matches.
+              </p>
+              <WebhookProof />
+            </CaseSection>
+          )}
 
           <CaseSection title="Stack">
             <div className="flex flex-col gap-6">
